@@ -34,7 +34,7 @@ function checkInput(event)
         document.getElementById('FundAmountError').innerHTML = '***נא להזין רק מספרים***'
     }
      else {
-        FundAmount.style.border = ''
+        FundAmount.style.border = '2px solid green'
         document.getElementById('FundAmountError').innerHTML = ''
     }    
 }
@@ -54,7 +54,7 @@ function checkInput2(event)
         document.getElementById('InterestError').innerHTML = '***נא להזין רק מספרים***'
     }
      else {
-        Interest.style.border = ''
+        Interest.style.border = '2px solid green'
         document.getElementById('InterestError').innerHTML = ''
     }    
 }
@@ -74,7 +74,7 @@ function checkInput3(event)
         document.getElementById('YearsError').innerHTML = '***נא להזין רק מספרים***'
     }
      else {
-        Years.style.border = ''
+        Years.style.border = '2px solid green'
         document.getElementById('YearsError').innerHTML = ''
     }    
 }
@@ -96,7 +96,7 @@ function checkInput4(event)
         document.getElementById('PaymentError').innerHTML = '***נא להזין רק מספרים***'
     }
      else {
-        Payment.style.border = ''
+        Payment.style.border = '2px solid green'
         document.getElementById('PaymentError').innerHTML = ''
     }    
 }
