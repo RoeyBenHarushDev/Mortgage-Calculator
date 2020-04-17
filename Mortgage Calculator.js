@@ -5,7 +5,7 @@
     let Payment = document.getElementById('Payment')
     let result = document.getElementById('result')
     let isOk = document.getElementById('isOk')
-    let input = document.querySelector('input')
+    
 
 function calc ()
 {
