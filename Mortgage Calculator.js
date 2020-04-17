@@ -51,7 +51,7 @@ function checkInput2(event)
     if ( isNaN(value) )
     {
         Interest.style.border = '2px solid red'
-        document.getElementById('InterestError').innerHTML = 'נא להזין רק מספרים'
+        document.getElementById('InterestError').innerHTML = '***נא להזין רק מספרים***'
     }
      else {
         Interest.style.border = ''
@@ -71,7 +71,7 @@ function checkInput3(event)
     if ( isNaN(value) )
     {
         Years.style.border = '2px solid red'
-        document.getElementById('YearsError').innerHTML = 'נא להזין רק מספרים'
+        document.getElementById('YearsError').innerHTML = '***נא להזין רק מספרים***'
     }
      else {
         Years.style.border = ''
@@ -93,7 +93,7 @@ function checkInput4(event)
     if ( isNaN(value) )
     {
         Payment.style.border = '2px solid red'
-        document.getElementById('PaymentError').innerHTML = 'נא להזין רק מספרים'
+        document.getElementById('PaymentError').innerHTML = '***נא להזין רק מספרים***'
     }
      else {
         Payment.style.border = ''
