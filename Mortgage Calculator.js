@@ -1,109 +1,78 @@
+let Fund = document.getElementById('FundAmount')
+let Interest = document.getElementById('Interest')
+let Years = document.getElementById('Years')
+let Payment = document.getElementById('Payment')
+let result = document.getElementById('result')
+let FundAmountError = document.getElementById('FundAmountError')
+let InterestError = document.getElementById('InterestError')
+let YearsError = document.getElementById('YearsError')
+let PaymentError = document.getElementById('PaymentError')
+let isOk = document.getElementById('isOk')
 
-    let Fund = document.getElementById('FundAmount')
-    let Interest = document.getElementById('Interest')
-    let Years = document.getElementById('Years')
-    let Payment = document.getElementById('Payment')
-    let result = document.getElementById('result')
-    let isOk = document.getElementById('isOk')
+    let arrayInput =
+    [
+        Fund,
+        Interest,
+        Years,
+        Payment
+    ]
     
+    let errorArray =
+    [
+        document.getElementById('FundAmountError') ,
+        document.getElementById('InterestError') ,
+        document.getElementById('YearsError') ,
+        document.getElementById('PaymentError') 
+    ]
 
-function calc ()
+    function calc() {
+
+        result.value = Number(Fund.value) * (1 + (Number(Interest.value / 100))) / (Number(Years.value) * 12);
+    
+        if (isNaN(result.value) || result.value == Infinity) {
+            isOk.innerHTML = "";
+            result.innerHTML = ""
+    
+        } 
+        else {
+            
+            if (Payment.value < result.value) {
+                result.innerHTML = result.value
+                isOk.innerHTML = "סכום גבוה, תנסה להקטין את הקרן או תגדיל את התקופה";
+    
+            } 
+            else {
+                result.innerHTML = result.value
+                isOk.innerHTML = "הסכום נמוך, הינך יכול לשלם אותו";
+            }
+        }
+    }
+
+for(let i = 0; i < arrayInput.length; i++)
 {
-
-    result.value =  Number(Fund.value) * (1 + (Number(Interest.value / 100))) / (Number(Years.value) * 12)
-    result.innerHTML = result.value
-    if(Payment.value < result.value)
-    {
-        isOk.innerHTML = "סכום גבוה, תנסה להקטין את הקרן או להגדיל את התקופה"
-    }
-    else
-    {
-        isOk.innerHTML = "הסכום נמוך, הינך יכול לשלם אותו"
-    }
-}
+    arrayInput[i].addEventListener(
+        'keyup',
+        checkInput
+    )
 
 function checkInput(event)
 {
     let value = Number( event.target.value )
-    
-    
+    let error = errorArray[i]
 
+    
     if ( isNaN(value) )
     {
-        FundAmount.style.border = '2px solid red'
-        document.getElementById('FundAmountError').innerHTML = '***נא להזין רק מספרים***'
+        arrayInput[i].style.border = '2px solid red'
+        error.innerHTML = '***נא להזין רק מספרים***'
     }
      else {
-        FundAmount.style.border = '2px solid green'
-        document.getElementById('FundAmountError').innerHTML = ''
-    }    
+        arrayInput[i].style.border = '2px solid green'
+        error.innerHTML = ''
+    } 
+    }   
+    
 }
-FundAmount.addEventListener(
-    'change',
-    checkInput
-)
-function checkInput2(event)
-{
-    let value = Number( event.target.value )
-    
-    
-
-    if ( isNaN(value) )
-    {
-        Interest.style.border = '2px solid red'
-        document.getElementById('InterestError').innerHTML = '***נא להזין רק מספרים***'
-    }
-     else {
-        Interest.style.border = '2px solid green'
-        document.getElementById('InterestError').innerHTML = ''
-    }    
-}
-Interest.addEventListener(
-    'change',
-    checkInput2
-)
-function checkInput3(event)
-{
-    let value = Number( event.target.value )
-    
-    
-
-    if ( isNaN(value) )
-    {
-        Years.style.border = '2px solid red'
-        document.getElementById('YearsError').innerHTML = '***נא להזין רק מספרים***'
-    }
-     else {
-        Years.style.border = '2px solid green'
-        document.getElementById('YearsError').innerHTML = ''
-    }    
-}
-Years.addEventListener(
-    'change',
-    checkInput3
-)
-
-
-function checkInput4(event)
-{
-    let value = Number( event.target.value )
-    
-    
-
-    if ( isNaN(value) )
-    {
-        Payment.style.border = '2px solid red'
-        document.getElementById('PaymentError').innerHTML = '***נא להזין רק מספרים***'
-    }
-     else {
-        Payment.style.border = '2px solid green'
-        document.getElementById('PaymentError').innerHTML = ''
-    }    
-}
-Payment.addEventListener(
-    'change',
-    checkInput4
-)
 
 
 
