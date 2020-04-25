@@ -32,7 +32,18 @@ let isOk = document.getElementById('isOk')
         if (isNaN(result.value) || result.value == Infinity) {
             isOk.innerHTML = "";
             result.innerHTML = ""
-    
+            for(let j = 0; j < errorArray.length; j++) 
+            {
+                if (arrayInput[j].value == "")
+                {
+                    arrayInput[j].style.border = '2px solid red'
+                errorArray[j].innerHTML = '***נא להזין מספרים***'
+            } else {
+                arrayInput[j].style.border = ''
+                errorArray[j].innerHTML = ''
+            
+                }
+            }
         } 
         else {
             
@@ -61,7 +72,7 @@ function checkInput(event)
     let error = errorArray[i]
 
     
-    if ( isNaN(value) )
+    if ( isNaN(value) || value == "" )
     {
         arrayInput[i].style.border = '2px solid red'
         error.innerHTML = '***נא להזין רק מספרים***'
